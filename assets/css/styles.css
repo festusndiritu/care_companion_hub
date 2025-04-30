@@ -1,0 +1,107 @@
+/* Tailwind customizations */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --lavender-100: #F3E8FF;
+  --lavender-200: #EDE9FE;
+  --lavender-600: #A78BFA;
+  --lavender-700: #8B5CF6;
+  --lavender-800: #6D28D9;
+}
+
+/* Lavender color palette */
+.bg-lavender-100 { background-color: var(--lavender-100); }
+.bg-lavender-200 { background-color: var(--lavender-200); }
+.bg-lavender-600 { background-color: var(--lavender-600); }
+.bg-lavender-700 { background-color: var(--lavender-700); }
+.bg-lavender-800 { background-color: var(--lavender-800); }
+.text-lavender-600 { color: var(--lavender-600); }
+.text-lavender-700 { color: var(--lavender-700); }
+.border-lavender-600 { border-color: var(--lavender-600); }
+.border-lavender-700 { border-color: var(--lavender-700); }
+
+/* Grid background pattern for landing page */
+.bg-grid-pattern {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Accordion styles */
+.accordion-content {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+.accordion.active .accordion-content {
+  opacity: 1;
+  /* max-height is set dynamically by JavaScript to content.scrollHeight */
+}
+
+.accordion-icon {
+  transition: transform 0.3s ease;
+}
+
+.accordion-icon.rotate-180 {
+  transform: rotate(180deg);
+}
+
+/* Ensure Tailwind's hidden class works with accordion */
+.accordion-content.hidden {
+  display: none;
+}
+
+/* Testimonial slider dots */
+.testimonial-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.testimonial-dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  background-color: var(--lavender-200);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.testimonial-dot.active {
+  background-color: var(--lavender-700);
+}
+
+/* About page mission/vision layout */
+.mission-vision-container {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+
+@media (max-width: 640px) {
+  .mission-vision-container {
+    flex-direction: column;
+  }
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles for accessibility */
+a:focus, button:focus, input:focus, textarea:focus, select:focus {
+  outline: 2px solid var(--lavender-600);
+  outline-offset: 2px;
+}
+
+/* Ensure focus states for accordion buttons and slider dots */
+.accordion button:focus, .testimonial-dot:focus {
+  outline: 2px solid var(--lavender-600);
+  outline-offset: 2px;
+}
